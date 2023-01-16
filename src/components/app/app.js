@@ -36,14 +36,19 @@ class App extends Component {
 
   onAdd = (e, {name, salary}) => {
     e.preventDefault();
-    this.setState(({data}) => {
+    if(name.length >= 3 && salary) {
+      this.setState(({data}) => {
 
-      const newItem = {name:name, salary:salary,increase: false, like:false, id:data[data.length-1].id + 1}
-      const newArr = [...data, newItem]
-      return {
-        data: newArr
-      }
-    })
+        const newItem = {name:name, salary:salary,increase: false, like:false, id:data[data.length-1].id + 1}
+        const newArr = [...data, newItem]
+        return {
+          data: newArr
+        }
+      })
+    } else {
+      alert('name must be 3 or more chars long and salary need to exist')
+    }
+    
   }
 
   // onToggleIncrease = (id) => {
