@@ -19,7 +19,6 @@ function App() {
   return (
     <div className="app">
         <AppInfo />
-
         <div className="search-panel">
             <SearchPanel/>
             <AppFilter/>
