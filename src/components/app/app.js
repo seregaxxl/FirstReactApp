@@ -14,9 +14,9 @@ class App extends Component {
     super(props);
     this.state = {
       data: [
-        {name: 'lokin', salary: 4020, increase: true, like:true, id:1},
-        {name: 'Sergey Koko', salary: 42100, increase: false, like:false, id:2},
-        {name: 'Rupert Green', salary: 1400, increase: false, like:false, id:3}
+        {name: 'lokin', salary: 4020, increase: true, like:true, id:0},
+        {name: 'Sergey Koko', salary: 42100, increase: false, like:false, id:1},
+        {name: 'Rupert Green', salary: 1400, increase: false, like:false, id:2}
       ],
       term: '',
       filter: ''
@@ -109,6 +109,17 @@ class App extends Component {
     // }
   }
 
+  onUpdateSalary = (salary, id) => {
+    this.setState(({data}) => ({
+      data: data.map(item => {
+        if (item.id === id) {
+          return {...item, 'salary' : salary}
+        }
+        return item;
+       })
+    }))
+  }
+
   render() {
     const {data, term} = this.state;
     const employees = data.length,
@@ -133,6 +144,7 @@ class App extends Component {
           data={visibleData}
           onDelete={this.deleteItem}
           onToggleProp={this.onToggleProp}
+          onUpdateSalary={this.onUpdateSalary}
           />
           <EmployeesAddForm
           onAdd={this.onAdd}
