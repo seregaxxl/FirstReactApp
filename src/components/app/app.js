@@ -36,7 +36,7 @@ class App extends Component {
     if(name.length >= 3 && salary) {
       this.setState(({data}) => {
 
-        const newItem = {name:name, salary:salary,increase: false, like:false, id:data[data.length-1].id + 1}
+        const newItem = {name:name, salary:salary,increase: false, like:false, id:data[0] ? data[data.length-1].id + 1 : 0}
         const newArr = [...data, newItem]
         return {
           data: newArr

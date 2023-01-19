@@ -20,8 +20,6 @@ import './employees-list-item.css';
                 e.target.value = e.target.value.slice(0, -2).replace(/[^0-9]/ig, '')
                 + e.target.value.slice(-2, -1).replace(/[^\s]/ig, ' ')
                 + e.target.value.slice(-1).replace(/[^$]/ig, '$');
-
-
                 newSalary = e.target.value.slice(0, -2);
                 onUpdateSalary(newSalary, id)}}
                 />
